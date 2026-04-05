@@ -81,14 +81,12 @@ function LoadingOverlay({ progress }: { progress: number }) {
   );
 }
 
-function MainHeroContent({ opacity, scale, y }: { 
+function MainHeroContent({ opacity }: { 
   opacity: MotionValue<number>; 
-  scale: MotionValue<number>; 
-  y: MotionValue<number> 
 }) {
   return (
     <motion.div 
-      style={{ opacity, scale, y }}
+      style={{ opacity }}
       className="absolute inset-0 flex flex-col items-center justify-center px-6 md:px-16"
     >
       <div className="space-y-8 max-w-4xl text-center flex flex-col items-center">
@@ -179,13 +177,12 @@ function MainHeroContent({ opacity, scale, y }: {
   );
 }
 
-function NatureInfoOverlay({ opacity, scale }: { 
+function NatureInfoOverlay({ opacity }: { 
   opacity: MotionValue<number>; 
-  scale: MotionValue<number> 
 }) {
   return (
     <motion.div 
-      style={{ opacity, scale }}
+      style={{ opacity }}
       className="absolute inset-0 flex items-center justify-center pointer-events-none"
     >
       <div className="max-w-6xl mx-auto text-center space-y-8 px-6">
@@ -250,13 +247,12 @@ function NatureInfoOverlay({ opacity, scale }: {
   );
 }
 
-function AdventureInfoOverlay({ opacity, y }: { 
+function AdventureInfoOverlay({ opacity }: { 
   opacity: MotionValue<number>; 
-  y: MotionValue<number> 
 }) {
   return (
     <motion.div 
-      style={{ opacity, y }}
+      style={{ opacity }}
       className="absolute inset-0 flex items-center justify-center pointer-events-none"
     >
       <div className="max-w-6xl mx-auto text-center space-y-8 px-6">
@@ -368,24 +364,20 @@ const Hero = () => {
         <LoadingOverlay progress={progress} />
       )}
 
-      <div className="sticky top-0 h-screen overflow-hidden z-40">
+      <div className="sticky top-0 h-screen overflow-hidden z-0">
         <MainHeroContent 
           key={isLoaded ? "hero-loaded" : "hero-loading"}
           opacity={mainContentOpacity} 
-          scale={mainContentScale} 
-          y={mainContentY} 
         />
         
         <NatureInfoOverlay 
           key={isLoaded ? "nature-loaded" : "nature-loading"}
           opacity={natureInfoOpacity} 
-          scale={natureInfoScale} 
         />
         
         <AdventureInfoOverlay 
           key={isLoaded ? "adventure-loaded" : "adventure-loading"}
           opacity={adventureInfoOpacity} 
-          y={adventureInfoY} 
         />
       </div>
     </section>
