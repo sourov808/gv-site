@@ -368,19 +368,22 @@ const Hero = () => {
         <LoadingOverlay progress={progress} />
       )}
 
-      <div className="sticky top-0 h-screen overflow-hidden z-10">
+      <div className="sticky top-0 h-screen overflow-hidden z-40">
         <MainHeroContent 
+          key={isLoaded ? "hero-loaded" : "hero-loading"}
           opacity={mainContentOpacity} 
           scale={mainContentScale} 
           y={mainContentY} 
         />
         
         <NatureInfoOverlay 
+          key={isLoaded ? "nature-loaded" : "nature-loading"}
           opacity={natureInfoOpacity} 
           scale={natureInfoScale} 
         />
         
         <AdventureInfoOverlay 
+          key={isLoaded ? "adventure-loaded" : "adventure-loading"}
           opacity={adventureInfoOpacity} 
           y={adventureInfoY} 
         />
