@@ -89,7 +89,7 @@ function MainHeroContent({ opacity }: {
       style={{ opacity }}
       className="absolute inset-0 flex flex-col items-center justify-center px-6 md:px-16"
     >
-      <div className="space-y-8 max-w-4xl text-center flex flex-col items-center">
+      <div className="space-y-20 max-w-4xl text-center flex flex-col items-center">
         <motion.div 
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
